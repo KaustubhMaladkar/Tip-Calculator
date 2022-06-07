@@ -12,9 +12,7 @@
 
 /* GLOABAL TAGS */
 body {
-    width: 100%;
     margin: 0;
-    overflow: hidden;
     font-family: var(--primary-font-family);
     background-color: var(--light-grayish-cyan);
 }
