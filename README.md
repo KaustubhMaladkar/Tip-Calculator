@@ -31,7 +31,7 @@ Desktop Layout Screenshot
 ![image](https://user-images.githubusercontent.com/74300302/172127385-98121416-737f-4459-9ce4-306bd8d0d2db.png)
 
 Mobile Layout Screenshot
-![image](https://user-images.githubusercontent.com/74300302/172131837-4ac779b9-bda4-4128-bec3-e37c1cb3129b.jpg)
+![image](https://user-images.githubusercontent.com/74300302/172417355-feed3921-cbda-4a95-b31a-daa62cc1b261.png)
 
 
 
