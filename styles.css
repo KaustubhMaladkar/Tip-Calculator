@@ -1,0 +1,349 @@
+:root {
+    --primary-color: hsl(172, 67%, 45%);
+    --very-dark-cyan: hsl(183, 100%, 15%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --grayish-cyan: hsl(184, 14%, 56%);
+    --light-grayish-cyan: hsl(185, 41%, 84%);
+    --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --white: hsl(0, 0%, 100%);
+    --primary-font-size: 24px;
+    --primary-font-family: 'Space Mono', monospace;
+}
+
+/* GLOABAL TAGS */
+body {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: var(--primary-font-family);
+    background-color: var(--light-grayish-cyan);
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    color: var(--very-dark-cyan);
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+h1 span {
+    display: block;
+    margin: 0;
+}
+
+label {
+    display: block;
+    text-transform: capitalize;
+}
+
+button {
+    outline: none;
+    border: none;
+    text-align: center;
+    background-color: var(--very-dark-cyan);
+    font-size: var(--primary-font-size);
+    color: var(--white);
+    text-transform: capitalize;
+    margin: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="button"]:hover {
+    opacity: 0.9;
+}
+
+[disabled],
+[disabled]:hover {
+    opacity: .8;
+}
+
+legend {
+    margin-bottom: 8px;
+}
+
+/* Chrome,
+Safari,
+Edge, */
+/* Opera  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input {
+    display: block;
+    border: none;
+    background-color: var(--very-light-grayish-cyan);
+    font-size: var(--primary-font-size);
+    height: 30px;
+    color: var(--very-dark-cyan);
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+input:not(#custom) {
+    text-align: right;
+}
+
+aside {
+    font-size: 11px;
+    text-align: center;
+}
+
+aside a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* END OF GLOBAL TAGS GENERIC IDs  */
+#bill {
+    background-image: url('./images/icon-dollar.svg');
+}
+
+#people {
+    background-image: url('./images/icon-person.svg');
+}
+
+/* END OF GENERIC IDs GENERIC CLASSES*/
+button,
+#custom {
+    width: calc(50% - 20px);
+    font-weight: bold;
+}
+
+/* END OF GENERIC CLASSES  */
+/* INPUT  */
+.input {
+    background-color: var(--white);
+    color: var(--dark-grayish-cyan);
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+.input legend {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+legend:nth-of-type(2) label {
+    width: 100%;
+}
+
+legend:nth-of-type(2) {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[for="people"] {
+    display: inline;
+}
+
+.warning {
+    display: none;
+    color: red;
+    font-size: 12px;
+    background-color: transparent;
+}
+
+input#custom {
+    background-color: var(--white);
+    color: var(--dark-grayish-cyan);
+    margin-top: 12px;
+    margin-left: 2px;
+    padding-bottom: 8px;
+    opacity: 1;
+}
+
+input#custom::placeholder {
+    text-transform: capitalize;
+    color: var(--dark-grayish-cyan);
+    opacity: 1;
+}
+
+/* END OF INPUT */
+/*OUTPUT*/
+
+.output {
+    background-color: var(--very-dark-cyan);
+    display: flex;
+    margin-top: -8px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.output div,
+.output span {
+    width: 100%;
+}
+
+.output>div>div {
+    display: flex;
+    gap: 15px;
+}
+
+.output>div>div:first-of-type {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.output>div>div:last-of-type {
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+[type="submit"],
+[type="reset"] {
+    font-family: var(--primary-font-family);
+    background-color: var(--primary-color);
+    width: 90%;
+    text-align: center;
+    color: var(--very-dark-cyan);
+}
+
+.tip-person,
+.total-person {
+    font-size: 35px;
+    color: var(--primary-color);
+}
+
+.output>div>div>div>span:first-of-type {
+    text-transform: capitalize;
+    color: var(--white);
+    display: block;
+}
+
+.output>div>div>div>span:last-of-type {
+    color: var(--grayish-cyan);
+}
+
+/*END OF OUTPUT */
+
+.active:not(input) {
+    background-color: var(--primary-color);
+    color: var(--very-dark-cyan);
+    transition: background 0.7s ease-in-out;
+}
+
+.correct {
+    border: lightgreen 2px solid;
+}
+
+.error {
+    border: red 2px solid;
+}
+
+.correct:focus,
+.error:focus {
+    outline: none;
+}
+
+/* JAVASCRIPT CLASSES */
+
+/* END OF JAVASCRIPT CLASSES */
+
+/* FOR DESKTOP   */
+@media (min-width: 1200px) {
+
+    /* RESET */
+    html,
+    body,
+    main {
+        margin: 0;
+    }
+
+    /* END OF RESET */
+
+    /* GENERIC TAGS */
+    form {
+        width: 100%;
+        max-width: 900px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: auto;
+        padding-right: 15px;
+        display: flex;
+        width: fit-content;
+        background-color: var(--white);
+    }
+
+    input {
+        width: 90%;
+    }
+
+    aside {
+        display: none;
+    }
+
+    /* END OF GENERIC TAGS */
+
+    /* GENERIC CLASSES */
+    .output,
+    .input {
+        height: 400px;
+    }
+
+    .warning {
+        margin-left: 92px;
+    }
+
+    /* END OF GENERIC CLASSES */
+
+    /* INPUT */
+
+    .input button,
+    .input input#custom {
+        width: calc(100% / 3 - 20px);
+    }
+
+    .input {
+        width: 50%;
+        padding-bottom: 0;
+    }
+
+    .input legend {
+        margin-left: 25px;
+    }
+
+    /* END OF INPUT */
+
+    /* OUTPUT */
+
+    .output {
+        width: 50%;
+        margin: 22px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .output div {
+        margin-left: 20px;
+    }
+
+    .output>div>div:first-of-type {
+        margin-top: -20px;
+        margin-bottom: 40px;
+    }
+
+    [type="reset"] {
+        display: none;
+    }
+
+    /* END OF OUTPUT */
+}
