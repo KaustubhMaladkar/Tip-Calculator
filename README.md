@@ -37,7 +37,6 @@ Mobile Layout Screenshot
 
 ### Links
 
-- Solution URL [(https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX/hub/tip-calculator-using-javascript-classes-css-flexbox-and-semantic-html-UKGFFSAs2F)]
 - Live Site URL: [(https://kaustubhmaladkar.github.io/Tip-Calculator/)]
 
 ## My process
