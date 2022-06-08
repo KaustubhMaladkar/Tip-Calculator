@@ -92,7 +92,7 @@ billElem.addEventListener("keyup", () => {
 
 function checkInputForError(input, showError) {
     const value = parseFloat(input.value.trim()) || 0;
-    if (isNaN(value) || value < 1) {
+    if ( !value || isNaN(value) || value < 1) {
         if (showError) warning.style.display = "inline";
         input.classList.add("error");
         if (input = peopleElem) peopleError = true;
