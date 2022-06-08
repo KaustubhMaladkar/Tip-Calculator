@@ -67,8 +67,8 @@ form.addEventListener("submit", event => {
     const tip = tipCalculator.getTipPerPerson();
     const total = tipCalculator.getTotalPerPerson();
     const formatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD", signDisplay: "never"});
-    tipPerPersonElem.innerText = !(isNaN(formatter.format(tip))) && isFinite(formatter.format(tip)) ? formatter.format(tip) : 0;
-    totalPerPersonElem.innerText = !(isNaN(formatter.format(total))) && isFinite(formatter.format(total)) ? formatter.format(total) : 0;
+    tipPerPersonElem.innerText =  formatter.format(tip);
+    totalPerPersonElem.innerText = formatter.format(total); 
     submit.style.display = "none";
     const resetBtn = document.querySelector("[type=\"reset\"]");
     resetBtn.style.display = "block";
@@ -92,7 +92,7 @@ billElem.addEventListener("keyup", () => {
 
 function checkInputForError(input, showError) {
     const value = parseFloat(input.value.trim()) || 0;
-    if ( !value || isNaN(value) || value < 1) {
+    if (isNaN(value) || value < 1) {
         if (showError) warning.style.display = "inline";
         input.classList.add("error");
         if (input = peopleElem) peopleError = true;
