@@ -213,6 +213,10 @@ input#custom::placeholder {
     color: var(--very-dark-cyan);
 }
 
+[type="reset"] {
+    display: none;
+}
+
 .tip-person,
 .total-person {
     font-size: 35px;
@@ -337,10 +341,6 @@ input#custom::placeholder {
     .output>div>div:first-of-type {
         margin-top: -20px;
         margin-bottom: 40px;
-    }
-
-    [type="reset"] {
-        display: none;
     }
 
     /* END OF OUTPUT */

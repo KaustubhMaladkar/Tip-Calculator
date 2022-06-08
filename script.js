@@ -4,6 +4,7 @@ const submit = document.querySelector("[type=\"submit\"]");
 const form = document.querySelector("form");
 const tipPerPersonElem = document.querySelector("[data-tip-person]");
 const totalPerPersonElem = document.querySelector("[data-total-person]");
+const warning = document.querySelector(".warning")
 let billError = peopleError = false;
 
 class TipCalc {
@@ -84,11 +85,11 @@ billElem.addEventListener("keyup", () => {
 function checkInputForError(input, error, showError) {
     const value = input.value.trim() || 0;
     if (!value ||isNaN(parseFloat(value)) || parseFloat(value) == 0) {
-        if (showError) document.querySelector(".warning").style.display = "inline";
+        if (showError) warning.style.display = "inline";
         input.classList.add("error");
         error = true;
     } else {
-        if (showError) document.querySelector(".warning").style.display = "none";   
+        if (showError) warning.style.display = "none";   
         input.classList.remove("error");
         input.classList.add("correct");
         error = false;
@@ -107,4 +108,5 @@ function reset(submit = false) {
         input.classList.remove("error");
         input.value = "";
     })
+    warning.style.display = "none";
 }
