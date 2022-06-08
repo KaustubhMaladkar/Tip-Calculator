@@ -177,7 +177,9 @@ input#custom::placeholder {
 .output {
     background-color: var(--very-dark-cyan);
     display: flex;
-    margin-top: -8px;
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
