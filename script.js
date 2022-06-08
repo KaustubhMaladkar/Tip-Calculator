@@ -104,8 +104,8 @@ function checkInputForError(input, showError) {
         if (input = peopleElem) peopleError = false;
         if (input = billElem) billError = false;
     }
-    if (!peopleError && !billError) submit.removeAttribute("disabled");
-    if (billError || peopleError) submit.setAttribute("disabled", "")
+    if (!peopleError && !billError && Number(billElem.value) && Number(peopleElem.value)) submit.removeAttribute("disabled");
+    if (billError || peopleError) submit.setAttribute("disabled", "");
 }
 
 function reset(submit = false) {
