@@ -19,4 +19,7 @@
 *.nojekyll
 
 favicons-title-icon/*
+
 design/*
+
+*.gitignore
