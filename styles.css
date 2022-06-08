@@ -56,11 +56,6 @@ button[type="button"]:hover {
     opacity: 0.9;
 }
 
-[disabled],
-[disabled]:hover {
-    opacity: .8;
-}
-
 legend {
     margin-bottom: 8px;
 }
@@ -93,6 +88,11 @@ input {
 
 input:not(#custom) {
     text-align: right;
+}
+
+[disabled] {
+    cursor: default;
+    opacity: 0.6;
 }
 
 aside {

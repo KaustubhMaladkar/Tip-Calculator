@@ -59,6 +59,7 @@ custom.addEventListener("blur", () => {
 
 form.addEventListener("submit", event => {
     event.preventDefault();
+    if (submit.hasAttribute("disbaled")) return "disabled";
     checkInputForError(peopleElem, true);
     checkInputForError(billElem, false);
     if (billError || peopleError) return 
@@ -103,6 +104,8 @@ function checkInputForError(input, showError) {
         if (input = peopleElem) peopleError = false;
         if (input = billElem) billError = false;
     }
+    if (!peopleError && !billError) submit.removeAttribute("disabled");
+    if (billError || peopleError) submit.setAttribute("disabled", "")
 }
 
 function reset(submit = false) {
