@@ -38,16 +38,21 @@ class TipCalc {
     }
 }
 
-const tipOptions = [...document.querySelectorAll("button[type=\"button\"]"), document.querySelector("#custom")];
-tipOptions.forEach(option => {
-        if (option.tagName === "INPUT") option.addEventListener("keyup", () => {
-        tipOptions.forEach(option => option.classList.remove("active"));
-        option.classList.toggle("active");
-    })
+const tipOptionsBtn = [...document.querySelectorAll("button[type=\"button\"]")];
+const custom = document.getElementById("custom");
+const tipOptions = [...tipOptionsBtn, custom];
+tipOptionsBtn.forEach(option => {
     if (option.tagName === "BUTTON") option.addEventListener("click", () => {
-        tipOptions.forEach(option => option.classList.remove("active"));
-        option.classList.toggle("active");
+        tipOptionsBtn.forEach(optionBtn => optionBtn !== option ? optionBtn.classList.remove("active") : option.classList.toggle("active"));
     })
+})
+
+custom.addEventListener("focus", () => {
+    tipOptionsBtn.forEach(option => option.classList.remove("active"));
+    custom.classList.add("active");
+})
+custom.addEventListener("blur", () => {
+    if (!custom.value) custom.classList.remove("active")
 })
 
 form.addEventListener("submit", event => {
