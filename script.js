@@ -59,15 +59,15 @@ custom.addEventListener("blur", () => {
 
 form.addEventListener("submit", event => {
     event.preventDefault();
-    checkInputForError(peopleElem, peopleError, true);
-    checkInputForError(billElem, billError, false);
-    if (billError || peopleError) return;
+    checkInputForError(peopleElem, true);
+    checkInputForError(billElem, false);
+    if (billError || peopleError) return 
     const tipCalculator = new TipCalc();
-    const tip = isNaN(tipCalculator.getTipPerPerson()) ? 0 : tipCalculator.getTipPerPerson();
-    const total = isNaN(tipCalculator.getTotalPerPerson()) ? 0 : tipCalculator.getTotalPerPerson();
+    const tip = tipCalculator.getTipPerPerson();
+    const total = tipCalculator.getTotalPerPerson();
     const formatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD", signDisplay: "never"});
-    tipPerPersonElem.innerText = formatter.format(tip);
-    totalPerPersonElem.innerText = formatter.format(total);
+    tipPerPersonElem.innerText = !(isNaN(formatter.format(tip))) && isFinite(formatter.format(tip)) ? formatter.format(tip) : 0;
+    totalPerPersonElem.innerText = !(isNaN(formatter.format(total))) && isFinite(formatter.format(total)) ? formatter.format(total) : 0;
     submit.style.display = "none";
     const resetBtn = document.querySelector("[type=\"reset\"]");
     resetBtn.style.display = "block";
@@ -83,23 +83,25 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 peopleElem.addEventListener("keyup", () => {
-    checkInputForError(peopleElem, peopleError, true)
+    checkInputForError(peopleElem, true)
 });
 billElem.addEventListener("keyup", () => {
-    checkInputForError(billElem, billError, false);
+    checkInputForError(billElem, false);
 });
 
-function checkInputForError(input, error, showError) {
-    const value = input.value.trim() || 0;
-    if (!value ||isNaN(parseFloat(value)) || parseFloat(value) == 0) {
+function checkInputForError(input, showError) {
+    const value = parseFloat(input.value.trim()) || 0;
+    if (isNaN(value) || value < 1) {
         if (showError) warning.style.display = "inline";
         input.classList.add("error");
-        error = true;
-    } else {
+        if (input = peopleElem) peopleError = true;
+        if (input = billElem) billError = true;
+    } else if (!isNaN(value) || value > 0)  {
         if (showError) warning.style.display = "none";   
         input.classList.remove("error");
         input.classList.add("correct");
-        error = false;
+        if (input = peopleElem) peopleError = false;
+        if (input = billElem) billError = false;
     }
 }
 
@@ -108,7 +110,6 @@ function reset(submit = false) {
     const totalPerPersonElem = document.querySelector("[data-total-person]");
     tipPerPersonElem.innerText = "";
     totalPerPersonElem.innerText = "";
-    console.log(tipPerPersonElem.innerText, totalPerPersonElem.innerText, "reset", submit);
     tipOptions.forEach(option => option.classList.remove("active"));
     document.querySelectorAll("input").forEach(input => {   
         input.classList.remove("correct");
