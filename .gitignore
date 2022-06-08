@@ -16,4 +16,6 @@
 .prettierignore
 
 #.nojekyll
-.nojekyll
+*.nojekyll
+
+favicons-title-icon/*
