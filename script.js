@@ -5,6 +5,10 @@ const form = document.querySelector("form");
 const tipPerPersonElem = document.querySelector("[data-tip-person]");
 const totalPerPersonElem = document.querySelector("[data-total-person]");
 const warning = document.querySelector(".warning")
+const tipOptionsBtn = [...document.querySelectorAll("button[type=\"button\"]")];
+const custom = document.getElementById("custom");
+const tipOptions = [...tipOptionsBtn, custom];
+
 let billError = peopleError = false;
 
 class TipCalc {
@@ -38,12 +42,10 @@ class TipCalc {
     }
 }
 
-const tipOptionsBtn = [...document.querySelectorAll("button[type=\"button\"]")];
-const custom = document.getElementById("custom");
-const tipOptions = [...tipOptionsBtn, custom];
 tipOptionsBtn.forEach(option => {
-    if (option.tagName === "BUTTON") option.addEventListener("click", () => {
-        tipOptionsBtn.forEach(optionBtn => optionBtn !== option ? optionBtn.classList.remove("active") : option.classList.toggle("active"));
+    option.addEventListener("click", () => {
+        tipOptions.forEach(optionBtn => optionBtn !== option ? optionBtn.classList.remove("active") : option.classList.toggle("active"));
+        custom.value = "";
     })
 })
 
