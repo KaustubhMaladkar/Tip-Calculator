@@ -69,14 +69,6 @@ form.addEventListener("submit", event => {
     const formatter = new Intl.NumberFormat(undefined, {style: "currency", currency: "USD", signDisplay: "never"});
     tipPerPersonElem.innerText =  formatter.format(tip);
     totalPerPersonElem.innerText = formatter.format(total); 
-    submit.style.display = "none";
-    const resetBtn = document.querySelector("[type=\"reset\"]");
-    resetBtn.style.display = "block";
-    resetBtn.addEventListener("click", () => {
-        reset()
-        resetBtn.style.display = "none";
-        submit.style.display = "block"; 
-    })
 })
 
 document.addEventListener("DOMContentLoaded", () => {
