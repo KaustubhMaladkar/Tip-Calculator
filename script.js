@@ -11,6 +11,7 @@ const tipOptions = [...tipOptionsBtn, custom];
 
 let billError = peopleError = false;
 
+//create a calculator class
 class TipCalc {
     constructor () {
         this.tipPerPerson = 0;
